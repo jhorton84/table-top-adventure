@@ -1,0 +1,17 @@
+/**
+* Classname used for all screen components. 
+*/
+.screen {
+  background: whitesmoke;
+  display: flex;
+  justify-content: center;
+  height: calc(100vh - 50px);
+}
+
+.screen p {
+  margin: 0;
+}
+
+#characterSheet {
+  background: yellow;
+}

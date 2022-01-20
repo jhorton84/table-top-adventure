@@ -1,38 +1,48 @@
 .App {
-  text-align: center;
+  /* text-align: center; */
 }
 
-a {
-  padding: 15px;
-}
-
-/* 
-Classname used for the main component. 
+/**
+* Classname used to center element.
 */
-.screen {
-  background: palegoldenrod;
-  height: calc(100vh - 50px);
-}
-
 .center {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-nav {
-  background: whitesmoke;
-  height: 50px;
-  padding: 0;
+.row {
   display: flex;
-  justify-content: space-around;
-  align-items: center;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
-nav p {
-  margin: 0;
+.column {
+  flex-direction: column;
 }
 
-.screen p {
-  margin: 0;
+.hero {
+  display: flex;
+  background: white;
+  flex-direction: column;
+  margin: 20px 0 20px 0;
+  /* padding: 30px; */
+  position: relative;
+  border: solid rgb(235, 234, 234) 2px;
+  width: 600px;
+  word-wrap: break-word;
+  overflow: scroll;
+  padding: 20px;
+}
+
+.center-text {
+  text-align: center;
+}
+
+.stats {
+  padding-bottom: 10px;
+}
+
+.split {
+  /* display: flex; */
 }

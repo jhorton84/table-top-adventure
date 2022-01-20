@@ -1,0 +1,36 @@
+.ring {
+  background: white;
+  /* color: white; */
+  border-radius: 50%;
+  border: solid black 2px;
+  height: 80px;
+  width: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.rings {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+}
+.push div {
+  /* justify-content: space-between; */
+  margin: 0 30px;
+  /* background: green; */
+}
+.bottom-ring {
+  /* background: yellow; */
+  position: relative;
+  bottom: 35px;
+}
+
+.mg-1-lr {
+  margin: 0 10px 0 10px !important;
+}
+
+#fiveRings {
+  /* position: fixed;
+  right: 0; */
+}
