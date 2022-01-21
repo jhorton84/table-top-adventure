@@ -1,0 +1,71 @@
+/* .card-container {
+
+} */
+.main-container{
+  /* background: yellow; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  position: relative;
+  width: 100%;
+}
+
+.card-container img {
+  height: 50px;
+};
+
+.left-align {
+  align-items: flex-start;
+  text-align: left;
+}
+
+.checklist {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.checklist input {
+  margin-right: 15px;
+}
+
+.journey-button {
+  display: flex;
+  width: 100%;
+  position: relative;
+  justify-content: space-between;
+}
+
+.journey-button button {
+  width: 100px;
+  height: 30px;
+  position: relative;
+  bottom: -50px;
+}
+
+.carousel {
+  text-align: justify;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  margin: 10px;
+  justify-content: space-between;
+  height: 450px;
+}
+
+.carousel-buttons {
+  display: flex;
+  justify-content: center;
+}
+
+.carousel-buttons button {
+  height: 30px;
+  width: 100px;
+  position: relative;
+  margin: 0 5px 0 5px;
+};
+
+.card-image {
+  max-width: 50px;
+};

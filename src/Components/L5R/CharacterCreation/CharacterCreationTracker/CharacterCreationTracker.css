@@ -1,0 +1,18 @@
+.tracker {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  /* background: black; */
+}
+
+.tracker-color {
+  display: flex;
+  width: 100%;
+  color: red;
+  border-bottom: 2px solid red;
+  height: 35px;
+}
+
+.untracked {
+  height: 35px;
+}

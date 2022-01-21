@@ -1,5 +1,31 @@
 .App {
-  /* text-align: center; */
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  position: relative;
+}
+
+.canvas {
+  position: relative;
+  top: 75px;
+  max-width: 1000px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  margin: auto;
+  /* background: red; */
+}
+
+.routes-components {
+  max-width: 1000px;
+  display: flex;
+  top: 75px;
+  align-items: center;
+  /* justify-content: center; */
+  /* background: blue; */
 }
 
 /**

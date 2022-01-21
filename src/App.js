@@ -8,13 +8,15 @@ function App() {
   return (
     <div className='App'>
       <Nav />
-      <Switch>
-        <Route exact path='/' component={Main} />
-        {/* <Route exact path='/dnd' component={DnD} /> */}
-        <Route exact path='/L5R' component={L5R} />
-        {/* <Route exact path='/character-creation-:game' component={CharacterCreation} /> */}
-        {/* <Route exact path='/character-creation-L5R/Family/:clan' component={Q2Family} /> */}
-      </Switch>
+      <div className='routes-components'>
+        <Switch>
+          <Route exact path='/' component={Main} />
+          {/* <Route exact path='/dnd' component={DnD} /> */}
+          <Route exact path='/L5R' component={L5R} />
+          {/* <Route exact path='/character-creation-:game' component={CharacterCreation} /> */}
+          {/* <Route exact path='/character-creation-L5R/Family/:clan' component={Q2Family} /> */}
+        </Switch>  
+      </div>
     </div>
   );
 }
