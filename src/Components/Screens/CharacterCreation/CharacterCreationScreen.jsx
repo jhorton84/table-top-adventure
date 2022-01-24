@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import L5RConfig from '../../../Config/L5RConfig.json';
 import './CharacterCreationScreen.css';
 import CharacterCreationTracker from '../../L5R/CharacterCreation/CharacterCreationTracker/CharacterCreationTracker';
@@ -63,6 +63,7 @@ const CharacterCreationScreen = () => {
   });
   const [ extraRingPool, setExtraRingPool ] = useState(0);
   const [ ringsConfirm, setRingsConfirm ] = useState(false);
+  const [ heritage, setHeritage ] = useState('');
   // const [ weapons, setWeapons ] = useState([]);
   // const [ armor, setArmor ] = useState([]);
   // const [ gear, setGear ] = useState([]);
@@ -71,23 +72,23 @@ const CharacterCreationScreen = () => {
   // const [ exp, setExp ] = useState(0);
   
   // Destructuring Api Objects for fetching data.
-  // const { game: { L5R: { characterCreation }}} = gamesApi;
-  // const clans = characterCreation[0].clans;
-  // const families = clan ? characterCreation[0].families[0][clan]: "";
-  // const schools = clan && family ? characterCreation[0].schools[clan]: '';
   const clans = L5RConfig.clans;
-  console.log('clans', clans);
   const families = clan ? L5RConfig.families[0][clan] : '';
   const schools = family ? L5RConfig.schools[0][clan]: "";
-  // const famRing1 = family ? L5RConfig.families[0][clan][familyIndex].ring1
-  const famRing1 = family ? L5RConfig.families[0][clan][familyIndex].ring1 : ""
-  const famRing2 = family ? L5RConfig.families[0][clan][familyIndex].ring2 : ""
-  // const famRing1 = family ? characterCreation[0].ringIncreases.Family[clan][family].rings[0].name : ""
-  // const famRing2 = family ? characterCreation[0].ringIncreases.Family[clan][family].rings[1].name : ""
-  console.log('families', families);
+  const famRing1 = family ? L5RConfig.families[0][clan][familyIndex].ring1 : "";
+  const famRing2 = family ? L5RConfig.families[0][clan][familyIndex].ring2 : "";
 
-  console.log('RELATIONSIHP', relationship);
-  console.log('BUSHIDO', bushido);
+  console.log('');
+  console.log('status', status);
+  console.log('glory', glory);
+  console.log('honor', honor);
+  console.log('heritage', heritage);
+  console.log('');
+
+  useEffect(() => {
+    // getHeritageChoices();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
   
 
   const getData = (array, index) => {
@@ -230,6 +231,38 @@ const CharacterCreationScreen = () => {
     setWealth(Object.assign({}, wealth, {koku: startingWealth}));
   };
 
+  const finalizeHeritage = (value) => {
+    setHeritage(value)
+  }
+
+  const getHeritageChoices = () => {
+    let heritageValue1 = Math.floor(Math.random() * 10) + 1;
+    let heritageValue2 = Math.floor(Math.random() * 10) + 1;
+    // getHeritage(heritageValue1, heritageValue2);
+    console.log('')
+    console.log('heritageValue1', heritageValue1);
+    console.log('heritageValue2', heritageValue2);
+    console.log('')
+    let heritage1 = L5RConfig.heritage[heritageValue1];
+    let heritage2 = L5RConfig.heritage[heritageValue2];
+    console.log('');
+    console.log('heritage1', heritage1);
+    console.log('title1', heritage1.title);
+    console.log('');
+    return (
+      <div>
+        <div className='checklist'>
+          <input type="radio" id="heritage1" name="heritage1" onClick={() => finalizeHeritage(heritage1.title)} />
+          <label htmlFor="heritage1">{heritage1.title}: {heritage1.result}</label>
+        </div>
+        <div className='checklist'>
+          <input type="radio" id="heritage2" name="heritage2" onClick={() => finalizeHeritage(heritage2.title)} />
+          <label htmlFor="heritage2">{heritage2.title}: {heritage2.result}</label>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div className="component-container">
       {/* Default */}
@@ -371,11 +404,11 @@ const CharacterCreationScreen = () => {
           <div className="column left-align">
             <div className='checklist'>
                 <input type="radio" id="obedient" name="relationship" value="+5 glory" onClick={() => setRelationship("obedient")} />
-                <label htmlFor="creativity">Your character believes firmly in the precepts of their clan and the values it holds dear - you will gain 5 glory.</label>
+                <label htmlFor="obedient">Your character believes firmly in the precepts of their clan and the values it holds dear - you will gain 5 glory.</label>
             </div>
             <div className='checklist'>
                 <input type="radio" id="rebel" name="relationship" value="+1 skill" onClick={() => setRelationship("rebel")} />
-                <label htmlFor="grace">Rebel - you have a fundamental disagreement with your clan's beliefs, policies, or practices - you may choose to rank a new skill to 1.</label>
+                <label htmlFor="rebel">Rebel - you have a fundamental disagreement with your clan's beliefs, policies, or practices - you may choose to rank a new skill to 1.</label>
             </div>
           </div>
           <div className='journey-button'>
@@ -392,12 +425,11 @@ const CharacterCreationScreen = () => {
           <div className="column left-align">
             <div className='checklist'>
                 <input type="radio" id="staunch" name="bushido" value="+10 honor" onClick={() => setBushido("honor")} />
-                <label htmlFor="creativity">Your character believes in living by an orthhodox interpretation of Bushido - you will gain 10 honor.</label>
+                <label htmlFor="staunch">Your character believes in living by an orthhodox interpretation of Bushido - you will gain 10 honor.</label>
             </div>
             <div className='checklist'>
                 <input type="radio" id="diverge" name="bushido" value="+1 skill" onClick={() => setBushido('rebel')} />
-                <label htmlFor="grace">Rebel - you have a fundamental disagreement with your clan's beliefs, policies, or practices - you will be able to choose to gain a rank in one of the following skills:</label>
-                <p>Commerce, Labor, Medicine, Seafaring, Skulduggery, or Survival</p>
+                <label htmlFor="grace">Rebel - you have a fundamental disagreement with your clan's beliefs, policies, or practices - you will be able to choose to gain a rank in one of the following skills: Commerce, Labor, Medicine, Seafaring, Skulduggery, or Survival</label>
             </div>
           </div>
           <div className='journey-button'>
@@ -426,13 +458,15 @@ const CharacterCreationScreen = () => {
       {
         ringsConfirm && (
           <div className="main-container">
-            <p>Clan: {clan}</p>
+            <h3>Choose A Heritage For Your Character From the Two Options Below</h3>
+            {getHeritageChoices()}
+            {/* <p>Clan: {clan}</p>
             <p>Family: {family}</p>
             <p>School: {school}</p>
             <p>Glory: {glory}</p>
             <p>Honor: {honor}</p>
             <p>Status: {status}</p>
-            <p>Wealth: {wealth.koku} koku, {wealth.bu} bu, {wealth.zeni} zeni</p>
+            <p>Wealth: {wealth.koku} koku, {wealth.bu} bu, {wealth.zeni} zeni</p> */}
           </div>
         )
       }

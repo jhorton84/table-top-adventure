@@ -710,6 +710,9 @@
   ],
   "heritage": [
     {
+      "empty": "empty"
+    },
+    {
       "roll": 1,
       "title": "Famous Deed:", 
       "result": "One of your ancestors won a great victory for their clan or even the Emperor, and was rewarded with an item of incredible quality",
